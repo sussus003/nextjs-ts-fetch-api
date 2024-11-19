@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import { Card, Space } from "antd";
+
 import "./App.css";
 
 interface Data {
@@ -29,14 +31,23 @@ function App() {
 
   return (
     <>
-      Hello World
+    <h1>Hello World</h1>
+      
       <ul>
         {data.map((item) => {
           return (
-            <li key={item.id}>
-              <h3>{item.id}</h3>
-              <h4>{item.title} </h4>
-            </li>
+            <Space direction="vertical" size
+            ={16} > 
+              <Card
+                title={item.title}
+                extra={<a href="www.google.co.th/">More</a>}
+                style={{ width: 300 }}
+              >
+                <p>
+                  {item.id} {item.body}
+                </p>
+              </Card>
+            </Space>
           );
         })}
       </ul>
